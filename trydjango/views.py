@@ -11,6 +11,8 @@ def home_view (request):
   """
   - Take in a request (Django sends the request)
   - Return the response as a HTML pages (We get the response)
+  - Need to get the data from the article app
+  - article_name and article_content from database
   """
   name = "sam"
   number = random.randint(1,1000)    # Some API call to rest in python 
@@ -20,3 +22,4 @@ def home_view (request):
   <h1> Hello {name}, You balance is: {number} /- !!! </h1>
   """
   return HttpResponse(HTML_STRING)
+
