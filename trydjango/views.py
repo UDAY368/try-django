@@ -6,6 +6,8 @@
 from django.http import HttpResponse
 import random
 
+from articles.models import Article
+
 
 def home_view (request):
   """
@@ -17,9 +19,12 @@ def home_view (request):
   name = "sam"
   number = random.randint(1,1000)    # Some API call to rest in python 
 
-  # Django Templets really gives the better HTML representation
+  article_obj = Article.objects.get(id = 2)
+  
   HTML_STRING = f"""
   <h1> Hello {name}, You balance is: {number} /- !!! </h1>
+  <h1> {article_obj.title} (id: {article_obj.id}) </h1>
+  <p>{article_obj.content}</p>
   """
   return HttpResponse(HTML_STRING)
 
